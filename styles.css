@@ -1,0 +1,44 @@
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.workbench-font {
+  font-family: "Workbench", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+}
+body {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+h1 {
+    text-align: center;
+    font-family: "Workbench";
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: 500px;
+    width: 500px;
+}
+
+.container > div {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+}
+
+
