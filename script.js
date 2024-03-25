@@ -18,7 +18,23 @@ function createColumn(num) {
             }
         }
         createRow(num);
-    }  
+    }
 };
 
-createColumn(16);
+createColumn(30);
+
+
+
+const boxes = document.querySelectorAll(".container > div");
+
+
+boxes.forEach(box => {
+    box.addEventListener("mouseenter", () => {
+        box.style.backgroundColor = "green";
+        setTimeout(() => {
+            box.style.backgroundColor = "";
+        }, 500)
+    })
+});
+
+// setTimeout()
