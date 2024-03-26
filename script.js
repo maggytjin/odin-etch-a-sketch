@@ -49,6 +49,11 @@ btnNum.addEventListener("click", () => {
     Number.num;
     if (num > 100) {
         num = prompt("Number too big. Only 1-100");
+    } else if (num == null || num == "") {
+        return;
+    } else if (isNaN(num)) {
+        prompt("Enter a valid number between 1 - 100");
+        return;
     }
     document.querySelector(".container").remove();
 
@@ -95,3 +100,13 @@ btnColor.addEventListener("click", () => {
         })
     })
 });
+
+const random = document.querySelector(".random");
+random.addEventListener("click", () => {
+    const boxes = document.querySelectorAll(".container > div");
+    boxes.forEach(box => {
+    box.addEventListener("mouseenter", () => {
+        box.style.backgroundColor = getRandomColor();
+        })
+    })
+})
