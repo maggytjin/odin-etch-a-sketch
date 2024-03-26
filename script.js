@@ -1,3 +1,4 @@
+createGrid(16);
 function createGrid(num) {
     const container = document.querySelector(".container");
     for (let i = 0; i < num; i++) {
@@ -22,15 +23,13 @@ function createGrid(num) {
     const boxes = document.querySelectorAll(".container > div");
     boxes.forEach(box => {
     box.addEventListener("mouseenter", () => {
-        box.style.backgroundColor = getRandomColor();
-        setTimeout(() => {
-            box.style.backgroundColor = "";
-        }, 500)
+        box.style.backgroundColor = btnColor.value;
+        // setTimeout(() => {
+        //     box.style.backgroundColor = "";
+        // }, 500)
         })
     })
 };
-
-createGrid(16);
 
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
@@ -40,6 +39,7 @@ function getRandomColor() {
     }
     return color;
 }
+
 
 const btnNum = document.querySelector(".dimensions");
 const heading = document.querySelector("h1");
@@ -79,12 +79,19 @@ btnNum.addEventListener("click", () => {
         boxes.forEach(box => {
             box.addEventListener("mouseenter", () => {
                 box.style.backgroundColor = getRandomColor();
-                setTimeout(() => {
-                    box.style.backgroundColor = "";
-                }, 500)
             })
         });
     };
     createGrid(num);
 });
 
+
+const btnColor = document.querySelector("input");
+btnColor.addEventListener("click", () => {
+    const boxes = document.querySelectorAll(".container > div");
+    boxes.forEach(box => {
+    box.addEventListener("mouseenter", () => {
+        box.style.backgroundColor = btnColor.value;
+        })
+    })
+});

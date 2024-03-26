@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 *,
 *::before,
@@ -40,15 +41,10 @@ h1 {
     border: 1px solid black;
 }
 
-
-.column,
-.row {
-    transition-property: opacity, display;
-    transition-duration: 0.25s;
-    transition-behavior: allow-discrete;    
-}
-
-
-.dimensions {
+.buttons {
+    display: flex;
     margin-bottom: 20px;
+    gap: 10px;
 }
+
+
