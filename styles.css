@@ -37,9 +37,17 @@ h1 {
 
 .container > div {
     display: flex;
-    align-items: center;
     border: 1px solid black;
 }
+
+
+.column,
+.row {
+    transition-property: opacity, display;
+    transition-duration: 0.25s;
+    transition-behavior: allow-discrete;    
+}
+
 
 .dimensions {
     margin-bottom: 20px;

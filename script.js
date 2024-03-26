@@ -1,6 +1,5 @@
-const container = document.querySelector(".container");
-
 function createGrid(num) {
+    const container = document.querySelector(".container");
     for (let i = 0; i < num; i++) {
         let column = document.createElement("div");
         column.classList.add("column");
@@ -23,7 +22,7 @@ function createGrid(num) {
     const boxes = document.querySelectorAll(".container > div");
     boxes.forEach(box => {
     box.addEventListener("mouseenter", () => {
-        box.style.backgroundColor = "green";
+        box.style.backgroundColor = getRandomColor();
         setTimeout(() => {
             box.style.backgroundColor = "";
         }, 500)
@@ -33,15 +32,28 @@ function createGrid(num) {
 
 createGrid(16);
 
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
-const num = document.querySelector(".dimensions");
-const newGrid = document.querySelector(".newGrid");
+const btnNum = document.querySelector(".dimensions");
+const heading = document.querySelector("h1");
 
-num.addEventListener("click", () => {
+btnNum.addEventListener("click", () => {
     let num = prompt("New grid size", "Enter a number");
-    container.remove();
+    Number.num;
+    if (num > 100) {
+        num = prompt("Number too big. Only 1-100");
+    }
+    document.querySelector(".container").remove();
 
     function createGrid(num) {
+        const newGrid = document.querySelector(".newGrid");
         const container = document.createElement("div");
         container.classList.add("container");
         newGrid.appendChild(container);
@@ -66,13 +78,13 @@ num.addEventListener("click", () => {
         const boxes = document.querySelectorAll(".container > div");
         boxes.forEach(box => {
             box.addEventListener("mouseenter", () => {
-                box.style.backgroundColor = "green";
+                box.style.backgroundColor = getRandomColor();
                 setTimeout(() => {
                     box.style.backgroundColor = "";
                 }, 500)
             })
         });
     };
-    
     createGrid(num);
-})
+});
+
