@@ -43,6 +43,7 @@ function getRandomColor() {
 
 const btnNum = document.querySelector(".dimensions");
 const heading = document.querySelector("h1");
+let currentColor;
 
 btnNum.addEventListener("click", () => {
     let num = prompt("New grid size", "Enter a number");
@@ -83,7 +84,12 @@ btnNum.addEventListener("click", () => {
         const boxes = document.querySelectorAll(".container > div");
         boxes.forEach(box => {
             box.addEventListener("mouseenter", () => {
-                box.style.backgroundColor = getRandomColor();
+                if (currentColor == null) {
+                    box.style.backgroundColor = "#097969";
+                } else if (currentColor == "randomColor") {
+                    box.style.backgroundColor = getRandomColor();
+                }
+                box.style.backgroundColor = currentColor;
             })
         });
     };
@@ -96,7 +102,9 @@ btnColor.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".container > div");
     boxes.forEach(box => {
     box.addEventListener("mouseenter", () => {
+        currentColor = null;
         box.style.backgroundColor = btnColor.value;
+        currentColor = btnColor.value;
         })
     })
 });
@@ -106,7 +114,9 @@ random.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".container > div");
     boxes.forEach(box => {
     box.addEventListener("mouseenter", () => {
+        currentColor = null;
         box.style.backgroundColor = getRandomColor();
+        currentColor = "randomColor";
         })
     })
 })
